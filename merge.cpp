@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <chrono>
 using namespace std;
 
 void merge(vector<int>& arr, int left,  int mid, int right) {
@@ -68,10 +69,11 @@ int main(int argc, char* argv[]) {
         for (int i = 0; i < arraySize; i++) {
                 arr[i] = rand() % 100;
         }
-        cout << "Unsorted Array: \n";
-        printArray(arr);
+        auto start = std::chrono::high_resolution_clock::now();
         mergeSort(arr, 0, arraySize - 1);
-        cout << "Sorted Array: \n";
-        printArray(arr);
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double, std::milli> elapsed = end - start;
+        std::cout << elapsed.count() << std::endl;
+        std::cout << arraySize << std::endl;
         return 0;
 }
