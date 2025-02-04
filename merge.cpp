@@ -73,7 +73,6 @@ int main(int argc, char* argv[]) {
         mergeSort(arr, 0, arraySize - 1);
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double, std::milli> elapsed = end - start;
-        std::cout << elapsed.count() << std::endl;
-        std::cout << arraySize << std::endl;
+        std::cout << elapsed.count() << "	" << arraySize << std::endl;
         return 0;
 }
